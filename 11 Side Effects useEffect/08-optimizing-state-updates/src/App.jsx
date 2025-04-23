@@ -9,7 +9,7 @@ import { sortPlacesByDistance } from './loc.js';
 
 // any code out side the component will just run first time component render 
 // we don't add it to useEffect cuz of it is not async 
-const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
+const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || []; // get the data from local storage
 const storedPlaces = storedIds.map((id) =>
   AVAILABLE_PLACES.find((place) => place.id === id)
 );
@@ -25,7 +25,7 @@ function App() {
   // if move code inside to outside useEffect it will case infinite loop as it update the state 
   // and same if we did not add [] 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => { // func to get current location 
       const sortedPlaces = sortPlacesByDistance(
         AVAILABLE_PLACES,
         position.coords.latitude,
@@ -56,7 +56,7 @@ function App() {
 
     const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
     if (storedIds.indexOf(id) === -1) {
-      localStorage.setItem(
+      localStorage.setItem( // set item to local storage
         'selectedPlaces',
         JSON.stringify([id, ...storedIds])
       );
