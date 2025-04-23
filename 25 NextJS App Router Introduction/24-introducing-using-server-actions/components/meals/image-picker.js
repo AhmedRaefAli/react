@@ -1,4 +1,4 @@
-'use client';
+'use client'; // directive 
 
 import { useRef, useState } from 'react';
 import Image from 'next/image';
@@ -22,7 +22,7 @@ export default function ImagePicker({ label, name }) {
 
     const fileReader = new FileReader();
 
-    fileReader.onload = () => {
+    fileReader.onload = () => { // after read file or image this func runs 
       setPickedImage(fileReader.result);
     };
 
