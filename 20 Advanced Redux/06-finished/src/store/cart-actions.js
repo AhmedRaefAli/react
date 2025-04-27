@@ -1,7 +1,7 @@
 import { uiActions } from './ui-slice';
 import { cartActions } from './cart-slice';
 
-// those are redux thunks, they are functions that return functions that dispatch actions
+//This file (cart-actions.js) defines two Redux thunk action creators for handling asynchronous operations related to a shopping cart:
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
