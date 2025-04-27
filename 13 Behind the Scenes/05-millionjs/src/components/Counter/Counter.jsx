@@ -57,7 +57,7 @@ const Counter = memo(function Counter({ initialCount }) {
 
   // we use useCallback with memo and useEffect always 
   // to not recreate a function when component reRender
-  // not that handleIncrement is passed to IconButton as prop 
+  // note that handleIncrement is passed to IconButton as prop 
   // which is wrapped by memo which aim to not reRender if CounterReRender 
   // but also if prop changed so we must wrap handleIncrement with useCallBack
   // to not reCreate new function each time Counter reCreated 

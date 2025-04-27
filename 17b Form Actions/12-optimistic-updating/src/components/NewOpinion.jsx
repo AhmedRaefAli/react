@@ -51,7 +51,7 @@ export function NewOpinion() {
   // input is the written function and the initial state
   // output is the current state and the action to change 
   // formAction is the action that will be called when the form is submitted
-  const [formState, ] = useActionState(shareOpinionAction, {
+  const [formState, formAction ] = useActionState(shareOpinionAction, {
     errors: null,
   });
 
