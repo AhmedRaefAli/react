@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
@@ -6,7 +7,7 @@ import EventDetailPage, {
   loader as eventDetailLoader,
   action as deleteEventAction,
 } from './pages/EventDetail';
-import EventsPage, { loader as eventsLoader } from './pages/Events';
+import { loader as eventsLoader } from './pages/Events';
 import EventsRootLayout from './pages/EventsRoot';
 import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEvent';
@@ -18,6 +19,9 @@ import AuthenticationPage, {
 } from './pages/Authentication';
 import { action as logoutAction } from './pages/Logout';
 import { checkAuthLoader, tokenLoader } from './util/auth';
+
+// Lazy load EventsPage
+const EventsPage = lazy(() => import('./pages/Events'));
 
 const router = createBrowserRouter([
   {

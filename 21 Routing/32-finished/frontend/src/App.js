@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           },
           {
             path: ':eventId', // path parameters  u can use useParams hook to get it
-            id: 'event-detail', 
+            id: 'event-detail',  // The ID helps in accessing this loaded data from other components using useRouteLoaderData('event-detail')
             loader: eventDetailLoader,
             children: [
               {
